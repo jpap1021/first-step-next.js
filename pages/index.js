@@ -12,11 +12,29 @@ const Index = props => (
               
             </Link>
           */}
-          <a>{character.name}</a>
+
           <img src={character.image} />
+          <a>{character.name}</a>
         </li>
       ))}
     </ul>
+    <style jsx>{`
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      li {
+        display: flex;
+        flex-direction: column;
+        margin: 20px;
+      }
+
+      a {
+        text-decoration: none;
+        text-align: center;
+      }
+    `}</style>
   </div>
 );
 
@@ -25,7 +43,7 @@ Index.getInitialProps = async function() {
   const data = await res.json();
 
   let value = [];
-  
+
   data.results.map(element => {
     value.push(element);
   });
