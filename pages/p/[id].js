@@ -2,19 +2,19 @@ import fetch from "isomorphic-unfetch";
 
 const Post = props => (
   <div>
-    <h1>{props.show.name}</h1>
-    {props.show.image ? <img src={props.show.image} /> : null}
+    <h1>{props.value.name}</h1>
+    {props.value.image ? <img src={props.value.image} /> : null}
   </div>
 );
 
 Post.getInitialProps = async function(context) {
   const { id } = context.query;
   const res = await fetch(`https://rickandmortyapi.com/api/character/${id}`);
-  const show = await res.json();
+  const value = await res.json();
 
-  console.log(`Fetched show: ${JSON.stringify(show)}`);
+  console.log(`Fetched show: ${JSON.stringify(value)}`);
 
-  return { show };
+  return { value };
 };
 
 export default Post;
