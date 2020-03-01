@@ -7,14 +7,12 @@ const Index = props => (
     <ul>
       {props.value.map(character => (
         <li key={character.id}>
-          {/*
-              <Link href="/p/[id]" as={`/p/${show.id}`}>
-              
-            </Link>
-          */}
-
-          <img src={character.image} />
-          <a>{character.name}</a>
+          <Link href="/p/[id]" as={`/p/${character.id}`}>
+            <img src={character.image} />
+          </Link>
+          <Link href="/p/[id]" as={`/p/${character.id}`}>
+            <a>{character.name}</a>
+          </Link>
         </li>
       ))}
     </ul>
