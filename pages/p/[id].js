@@ -1,11 +1,12 @@
 import fetch from "isomorphic-unfetch";
+import Layout from "../../components/MyLayout";
 
 const Post = props => (
-  <div>
-    <h1>{props.value.name}</h1>
+  <Layout>
     {props.value.image ? <img src={props.value.image} /> : null}
-    <h3>Sumary</h3>
+    <h3>Summary</h3>
     <ul>
+      <li>Name: {props.value.name}</li>
       <li>Status: {props.value.status} </li>
       <li>Specie: {props.value.species} </li>
       <li>Gender: {props.value.gender}</li>
@@ -21,7 +22,7 @@ const Post = props => (
         }
       `}
     </style>
-  </div>
+  </Layout>
 );
 
 Post.getInitialProps = async function(context) {

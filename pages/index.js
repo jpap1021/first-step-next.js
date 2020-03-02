@@ -1,9 +1,9 @@
 import Link from "next/link";
 import fetch from "isomorphic-unfetch";
+import Layout from "../components/MyLayout";
 
 const Index = props => (
-  <div>
-    <h1>Rick And Morty</h1>
+  <Layout>
     <ul>
       {props.value.map(character => (
         <li key={character.id}>
@@ -33,7 +33,7 @@ const Index = props => (
         text-align: center;
       }
     `}</style>
-  </div>
+  </Layout>
 );
 
 Index.getInitialProps = async function() {
